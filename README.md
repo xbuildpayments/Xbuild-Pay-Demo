@@ -1,5 +1,55 @@
 # Xbuild Pay Demo
 
+## System Architecture Diagram
+
+```mermaid
+flowchart LR
+
+    subgraph Client["Xbuild Pay Web App"]
+        UI[UI / Frontend]
+    end
+
+    subgraph Core["Core Architecture"]
+        PM[Project Management Plugin]
+        CC[Automated Compliance Checks]
+        MT[Automated Milestone Triggers]
+        IT[Automated Insurance Triggers]
+        RS[Real-Time On-Chain Settlement]
+    end
+
+    subgraph Modules["Enhancement Modules"]
+        SAL[Smart Arbitration Layer]
+        XC[Xbuild Connect: Community Layer]
+        LA[Lending + RWA Tokenization via Xbuild Capital™]
+        AI[AI Automated Analytics]
+    end
+
+    subgraph Integrations["External Project Platforms"]
+        Procore[Procore]
+        Autodesk[Autodesk]
+        Oracle[Oracle]
+        Other[Other PM Tools]
+    end
+
+    subgraph Ledger["XRPL Settlement Layer"]
+        XRPL[XRPL Network]
+        PriceFeeds[Oracle / Pricing Feeds]
+    end
+
+    UI --> PM
+    PM --> CC
+    CC --> RS
+    PM --> FT --> RS
+    PM --> IT --> RS
+
+    PM <--> Procore
+    PM <--> Autodesk
+    PM <--> Oracle
+    PM <--> Other
+
+    RS --> XRPL
+```
+
 **Xbuild Pay** is a real-time settlement and workflow automation platform for the construction industry.  
 It ensures that project execution, verification, and payment flows happen reliably, transparently, and without dispute.
 
@@ -12,7 +62,7 @@ Xbuild Pay is a **standalone architecture**, independent of Base44.
 
 ---
 
-## 🧩 Core Architecture Layers
+## Core Architecture Layers
 
 ### 1. Project Management Execution Layer (Primary Coordination Layer)
 Synchronizes real project workflows between:
@@ -83,7 +133,7 @@ Once conditions are met:
 
 ---
 
-## ✨ Intelligence Layer (New)
+## Intelligence Layer (New)
 
 ### **AI Automated Analytics**
 Xbuild Pay analyzes real-time:
@@ -102,7 +152,7 @@ This allows proactive decision-making **before disputes occur**, not after.
 
 ---
 
-## 🔌 Optional Enhancement Modules
+## Optional Enhancement Modules
 
 ### Arbitration Hub
 Decentralized dispute resolution for escalation scenarios.
@@ -118,7 +168,7 @@ Tokenization of real-world construction payment flows for liquidity and structur
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |------|------------|
@@ -131,7 +181,7 @@ Tokenization of real-world construction payment flows for liquidity and structur
 
 ---
 
-## 🏗 Run the Demo Locally
+## Run the Demo Locally
 
 ```bash
 npm install
